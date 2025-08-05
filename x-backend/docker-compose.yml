@@ -1,0 +1,42 @@
+services:
+  postgres:
+    image: postgres:15
+    container_name: rust-postgres
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: zoro
+      POSTGRES_PASSWORD: SWISScanal@12
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql # Optional
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    container_name: rust-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+    command: redis-server --appendonly yes # Enable persistence
+
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: rust-rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_USER: admin
+      RABBITMQ_DEFAULT_PASS: password123
+    ports:
+      - "5672:5672" # AMQP port
+      - "15672:15672" # Management UI port
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+  redis_data:
+  rabbitmq_data:

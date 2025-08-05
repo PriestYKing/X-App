@@ -1,0 +1,33 @@
+pub mod admin_service;
+pub mod ai_service;
+pub mod feed_service;
+pub mod interaction_service;
+pub mod kafka_service;
+pub mod media_service;
+pub mod notification_service;
+pub mod payment_service;
+pub mod post_service;
+pub mod profile_service;
+pub mod rabbitmq_service;
+pub mod search_service;
+pub mod user_service;
+pub mod websocket_service;
+// Re-export service configuration functions
+// pub use admin_service::configure as configure_admin_service;
+// pub use feed_service::configure as configure_feed_service;
+// pub use interaction_service::configure as configure_interaction_service;
+// pub use kafka_service::KafkaService;
+// pub use media_service::configure as configure_media_service;
+// pub use notification_service::configure as configure_notification_service;
+// pub use payment_service::configure as configure_payment_service;
+pub use post_service::configure as configure_post_service;
+// pub use profile_service::configure as configure_profile_service;
+// pub use search_service::configure as configure_search_service;
+pub use user_service::configure as configure_user_service;
+// pub use websocket_service::configure as configure_websocket_service;
+// Re-export key service structs
+// pub use ai_service::{AiRequest, AiResponse, AiService, LocalLLMService};
+// pub use payment_service::StripeService;
+// //pub use rabbitmq_service::{RabbitMQMessage, RabbitMQService};
+// pub use search_service::SearchService;
+// pub use websocket_service::{MessageType, WebSocketServer, WsSession};
