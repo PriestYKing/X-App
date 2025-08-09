@@ -4,13 +4,20 @@ import {
   BellIcon,
   BookmarkIcon,
   BriefcaseBusinessIcon,
+  CalendarCheckIcon,
   CircleEllipsisIcon,
+  EarthIcon,
   HouseIcon,
+  ImageIcon,
+  ImagePlayIcon,
   MailIcon,
+  MapPinIcon,
   PenLineIcon,
   SearchIcon,
+  SmileIcon,
   UserIcon,
   UsersIcon,
+  VoteIcon,
   ZapIcon,
 } from "lucide-react";
 import Image from "next/image";
@@ -29,9 +36,10 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 const Dashboard = () => {
   return (
-    <div className="flex h-screen w-full justify-between bg-black">
+    <div className="flex  h-screen w-full justify-between bg-black">
       <div className="flex flex-col mt-1 gap-0.5 px-4 lg:px-20">
         <div className="flex justify-center lg:justify-start">
           <Image
@@ -189,8 +197,8 @@ const Dashboard = () => {
           </DropdownMenu>
         </div>
       </div>
-      <div className="flex flex-1 w-screen justify-between border-l-[1px] border-r-[1px] border-gray-800">
-        <div className="flex mt-1 flex-1 h-12 justify-between text-white border-b-[1px] border-gray-800">
+      <div className="flex flex-col flex-1 w-screen border-l-[1px] border-r-[1px] border-gray-800">
+        <div className="flex mt-1  h-[50px] justify-between text-white border-b-[1px] border-gray-800">
           <span className="flex-1 hover:bg-gray-800 justify-center items-center flex font-bold cursor-pointer">
             <span className="border-b-[2px] border-blue-400 pb-2">For you</span>
           </span>
@@ -199,6 +207,36 @@ const Dashboard = () => {
               Following
             </span>
           </span>
+        </div>
+        <div className="flex p-4 gap-4 items-start w-full border-b-[1px] border-gray-800 ">
+          <div className="flex  ">
+            <Image src="/icon.svg" width={30} height={30} alt="" />
+          </div>
+          <div className="flex flex-1 flex-col gap-4">
+            <input
+              type="text"
+              placeholder="What's happening?"
+              className="text-white outline-none bg-transparent placeholder-gray-500 text-lg font-bold ml-2 w-full"
+            />
+            <div className="flex items-center gap-2 font-bold cursor-pointer">
+              <EarthIcon className="text-blue-400 ml-2 w-4 h-4" />
+              <span className="text-blue-400 text-xs">Everyone can reply</span>
+            </div>
+            <div className="border-b-[1px] border-gray-800 w-full"></div>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-4 cursor-pointer">
+                <ImageIcon className="text-blue-400 w-5 h-5" />
+                <ImagePlayIcon className="text-blue-400 w-5 h-5" />
+                <VoteIcon className="text-blue-400 w-5 h-5" />
+                <SmileIcon className="text-blue-400 w-5 h-5" />
+                <CalendarCheckIcon className="text-blue-400 w-5 h-5" />
+                <MapPinIcon className="text-blue-400 w-5 h-5" />
+              </div>
+              <button className="text-black bg-white font-bold w-[100px] rounded-full h-10 cursor-pointer">
+                Post
+              </button>
+            </div>
+          </div>
         </div>
       </div>
       <div className="flex-1">1</div>
